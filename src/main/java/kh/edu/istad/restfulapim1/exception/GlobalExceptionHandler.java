@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorRespone<?>> handleResponseStatusException(ResponseStatusException e){
         ApiErrorRespone<?> body =  ApiErrorRespone.builder()
                 .code(e.getStatusCode().toString())
-                .message(e.getMessage())
+                .message(e.getReason())
                 .build();
 
         return ResponseEntity.status(e.getStatusCode()).body(body);
